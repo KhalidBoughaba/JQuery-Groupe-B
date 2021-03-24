@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <style>
+    td{
+      border: 1px #000 solid;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="">
+    <table id="demo"></table>
+    <h1>The XMLHttpRequest Object</h1>
+    <button type="button" onclick="getTable()">Show participants</button>
+    </div>
+    
+    <script>
+    // function loadDoc() {
+    //   var xhttp = new XMLHttpRequest();
+    //   xhttp.onreadystatechange = function() {
+         
+    //       document.getElementById("demo").innerHTML =
+    //       this.responseText;
+        
+    //   };
+    //   xhttp.open("GET", "participants.json", true);
+    //   xhttp.send();
+    // }
+function getTable(){
+    $.get( "participants.json", function( data ) {
+  $( "#demo" ).html( data );
+  // alert( data );
+for(let element of data){
+  document.getElementById("demo").innerHTML+= "<td>" +element.nom + "<td>"
+
+}
+
+
+});
+}
+    </script>
+    
+</body>
+</html>
